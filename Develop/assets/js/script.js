@@ -1,7 +1,7 @@
 
 $( document ).ready(function() {
     //display the current date and time
-    var todaysDate = moment().format('dddd, MMMM Do YYYY, h:mm:ss a');
+    var todaysDate = moment().format('dddd, MMMM Do, YYYY - h:mm a');
     $("#currentDay").text(todaysDate);
 
     //save button events
@@ -14,16 +14,17 @@ $( document ).ready(function() {
       localStorage.setItem(hour, descText);
     });
 
-    $("#8 .description").val(localStorage.getItem("8am"));
-    $("#9 .description").val(localStorage.getItem("9am"));
-    $("#10 .description").val(localStorage.getItem("10am"));
-    $("#11 .description").val(localStorage.getItem("11am"));
-    $("#12 .description").val(localStorage.getItem("12pm"));
-    $("#1 .description").val(localStorage.getItem("1pm"));
-    $("#2 .description").val(localStorage.getItem("2pm"));
-    $("#3 .description").val(localStorage.getItem("3pm"));
-    $("#4 .description").val(localStorage.getItem("4pm"));
-    $("#5 .description").val(localStorage.getItem("5pm"));
+    //get descText and hour from localStorage
+    $("#8 .description").val(localStorage.getItem("8"));
+    $("#9 .description").val(localStorage.getItem("9"));
+    $("#10 .description").val(localStorage.getItem("10"));
+    $("#11 .description").val(localStorage.getItem("11"));
+    $("#12 .description").val(localStorage.getItem("12"));
+    $("#13 .description").val(localStorage.getItem("13"));
+    $("#14 .description").val(localStorage.getItem("14"));
+    $("#15 .description").val(localStorage.getItem("15"));
+    $("#16 .description").val(localStorage.getItem("16"));
+    $("#17 .description").val(localStorage.getItem("17"));
 
 
   //get the current time
@@ -35,29 +36,59 @@ $( document ).ready(function() {
   function checkTime() {
     //what hour of the day is it?
     var currentTime = moment().hours();
-    // var currentTime = '12';
+    // console.log('currentTime typeOf', typeof currentTime);
+    var currentTime = 13;
+
 
     //check the current time and depending on >, =, or <, add/remove class for background colors
-    $(".timeblock").each(function() {
+     $(".row").each(function() {
       var hourRow = $(this).attr("id");
-
+      console.log('hourRow typeof string?', typeof hourRow);
+      hourRow = parseInt(hourRow);
+      console.log('hourRow typeof number?', typeof hourRow);
       if (hourRow < currentTime) {
-        $(this).removeClass("future");
-        $(this).removeClass("present");
+        console.log('current time', currentTime);
+        console.log('past line 71 hourRow', hourRow);
+        console.log('hourRow < currentTime',hourRow < currentTime);
+        console.log('hourRow == currentTime',hourRow == currentTime);
+        console.log('hourRow > currentTime',hourRow > currentTime);
+        
+        
+        // $(this).removeClass("future");
+        // $(this).removeClass("present");
         $(this).addClass("past");
+
       }
       else if (hourRow === currentTime) {
-        $(this).removeClass("past");
-        $(this).removeClass("future");
+        console.log('current time', currentTime);
+        console.log('present line 84 hourRow', hourRow);
+        console.log('hourRow < currentTime',hourRow < currentTime);
+        console.log('hourRow == currentTime',hourRow == currentTime);
+        console.log('hourRow > currentTime',hourRow > currentTime);
+
+
         $(this).addClass("present");
+        // $(this).removeClass("past");
+        // $(this).removeClass("future");
+
       }
       else {
-        $(this).removeClass("present");
-        $(this).removeClass("past");
+        console.log('current time', currentTime);
+        console.log('future line 97 hourRow', hourRow);
+        console.log('hourRow < currentTime',hourRow < currentTime);
+        console.log('hourRow == currentTime',hourRow == currentTime);
+        console.log('hourRow > currentTime',hourRow > currentTime);
+        
+        
+        // $(this).removeClass("present");
+        // $(this).removeClass("past");
         $(this).addClass("future");
       }
     })
   }
 
   checkTime();
+
+  // var checkTimeRunner = setInterval(checkTime, 60000);
+
 });
