@@ -23,7 +23,7 @@ We were tasked with creating an application that did the following:
 *The hourly blocks are color-code to reflect whether it in the past, present, or future
 *When you click on a timeblock, you can enter text
 *The text entered can be saved
-*The saved text persists after a refresh
+*The saved text persists after a refresh.
 
 #### Screenshot
 
