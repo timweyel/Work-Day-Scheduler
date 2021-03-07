@@ -36,52 +36,19 @@ $( document ).ready(function() {
   function checkTime() {
     //what hour of the day is it?
     var currentTime = moment().hours();
-    // console.log('currentTime typeOf', typeof currentTime);
-    var currentTime = 13;
 
-
-    //check the current time and depending on >, =, or <, add/remove class for background colors
+    //check the current time and depending on >, =, or <, add class for background colors
      $(".row").each(function() {
       var hourRow = $(this).attr("id");
-      console.log('hourRow typeof string?', typeof hourRow);
+      
       hourRow = parseInt(hourRow);
-      console.log('hourRow typeof number?', typeof hourRow);
       if (hourRow < currentTime) {
-        console.log('current time', currentTime);
-        console.log('past line 71 hourRow', hourRow);
-        console.log('hourRow < currentTime',hourRow < currentTime);
-        console.log('hourRow == currentTime',hourRow == currentTime);
-        console.log('hourRow > currentTime',hourRow > currentTime);
-        
-        
-        // $(this).removeClass("future");
-        // $(this).removeClass("present");
         $(this).addClass("past");
-
       }
       else if (hourRow === currentTime) {
-        console.log('current time', currentTime);
-        console.log('present line 84 hourRow', hourRow);
-        console.log('hourRow < currentTime',hourRow < currentTime);
-        console.log('hourRow == currentTime',hourRow == currentTime);
-        console.log('hourRow > currentTime',hourRow > currentTime);
-
-
         $(this).addClass("present");
-        // $(this).removeClass("past");
-        // $(this).removeClass("future");
-
       }
       else {
-        console.log('current time', currentTime);
-        console.log('future line 97 hourRow', hourRow);
-        console.log('hourRow < currentTime',hourRow < currentTime);
-        console.log('hourRow == currentTime',hourRow == currentTime);
-        console.log('hourRow > currentTime',hourRow > currentTime);
-        
-        
-        // $(this).removeClass("present");
-        // $(this).removeClass("past");
         $(this).addClass("future");
       }
     })
@@ -89,6 +56,6 @@ $( document ).ready(function() {
 
   checkTime();
 
-  // var checkTimeRunner = setInterval(checkTime, 60000);
+  var checkTimeRunner = setInterval(checkTime, 60000);
 
 });
