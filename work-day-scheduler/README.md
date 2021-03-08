@@ -18,12 +18,12 @@ SO THAT I can manage my time effectively
 ### Implementation
 
 We were tasked with creating an application that did the following:
-*The current day is displayed at the top of the calendar
-*There are hourly blocks for standard business hours
-*The hourly blocks are color-code to reflect whether it in the past, present, or future
-*When you click on a timeblock, you can enter text
-*The text entered can be saved
-*The saved text persists after a refresh
+- The current day is displayed at the top of the calendar
+- There are hourly blocks for standard business hours
+- The hourly blocks are color-code to reflect whether it in the past, present, or future
+- When you click on a timeblock, you can enter text
+- The text entered can be saved
+- The saved text persists after a refresh.
 
 #### Screenshot
 
